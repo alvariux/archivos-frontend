@@ -1,0 +1,39 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+}
+*/
+
+body {
+    background: #c3c3c3;
+}
+
+.menu {
+    list-style: none;
+    background: #03A9F4;
+    /*padding: 5px 5px;*/
+    max-width: 1024px;
+    margin: auto;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 10px;
+    /*border: 1px solid #000;*/
+    
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.menu li a:hover {
+    text-decoration: none;
+    color: #000000;
+    background:#2196F3;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000000;
+}
