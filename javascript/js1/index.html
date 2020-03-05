@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript 1</title>
+  </head>
+  <body>
+    <h1>Javascript 1</h1>
+
+    <form action="" method="POST" id="form1" onsubmit="mensaje()">
+      Nombre: <input type="text" name="nombre" id="nombre" />
+      <input type="submit" value="Enviar" />
+    </form>
+
+    <button id="boton1" onclick="agregar()">Mensaje</button>
+    <div id="lista"></div>
+
+    <script>
+      function mensaje() {
+        var nameValue = document.getElementById("nombre").value;
+        alert("Hola " + nameValue);
+      }
+
+      function agregar() {
+        var lista = document.getElementById("lista");
+
+        var node = document.createElement("h2");
+
+        node.innerHTML = "Hola";
+        lista.appendChild(node);
+      }
+    </script>
+  </body>
+</html>
