@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Api peliculas</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" name="pelicula" id="pelicula" />
+          <button id="buscar" class="btn btn-primary">Buscar</button>
+        </div>
+      </div>
+      <div class="row">
+        <div id="resultado" class="col-md-12"></div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      jQuery(document).ready(function() {
+        var api_key = "669a0945";
+
+        $("#buscar").click(function() {
+          $.get(
+            "https://www.omdbapi.com",
+            {
+              apikey: api_key,
+              r: "json",
+              s: $("#pelicula").val()
+            },
+            function(data, status) {
+              console.log(data);
+
+              var titulo = "";
+              var year = "";
+              var imdb = "";
+              var poster = "";
+              var resultado = "";
+
+              for (var num = 0; num < data.Search.length; num++) {
+                titulo = data.Search[num].Title;
+                year = data.Search[num].Year;
+                imdb = data.Search[num].imdbID;
+                poster = data.Search[num].Poster;
+
+                resultado =
+                  '<div class="card" style="width: 18rem;"><img src="' +
+                  poster +
+                  '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' +
+                  titulo +
+                  '</h5><p class="card-text">Año ' +
+                  year +
+                  '</p><p class="card-text">IMDB ' +
+                  imdb +
+                  "</p></div></div>";
+
+                $("#resultado").append(resultado);
+              }
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

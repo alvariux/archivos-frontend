@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <h2 id="nombre"></h2>
+    <button id="boton1">Nombre 1</button>
+    <button id="boton2">Nombre 2</button>
+    <button id="boton3">Nombre 3</button>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      jQuery(document).ready(function() {
+        var text =
+          '{ "empleados" : [' +
+          '{ "nombre":"John" , "apellido":"Doe" },' +
+          '{ "nombre":"Anna" , "apellido":"Smith" },' +
+          '{ "nombre":"Peter" , "apellido":"Jones" } ]}';
+
+        var obj = JSON.parse(text);
+
+        $("#boton1").click(function() {
+          $("#nombre").html(
+            obj.empleados[0].nombre + " " + obj.empleados[0].apellido
+          );
+        });
+
+        $("#boton2").click(function() {
+          $("#nombre").html(
+            obj.empleados[1].nombre + " " + obj.empleados[1].apellido
+          );
+        });
+
+        $("#boton3").click(function() {
+          $("#nombre").html(
+            obj.empleados[2].nombre + " " + obj.empleados[2].apellido
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
