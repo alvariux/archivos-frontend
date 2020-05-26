@@ -90,6 +90,16 @@ h1 {
   background: #f3f3f3;
 }
 
+.nav-link {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 }
@@ -98,6 +108,9 @@ h1 {
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .bg-light {
+    background: none !important;
+  }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
